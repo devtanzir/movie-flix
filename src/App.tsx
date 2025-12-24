@@ -8,7 +8,7 @@ import MovieCard from "./components/MovieCard";
 function App() {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const { data: movies, isLoading, isError, error } = useMovies();
+  const { data: movies, isLoading, isError, error } = useMovies(searchTerm);
 
   const handleSearchTerm = (inputValue: string) => {
     setSearchTerm(inputValue);
