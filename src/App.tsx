@@ -5,6 +5,8 @@ import { useMovies } from "./hooks/useMovies";
 import type { Movie } from "./services/types";
 import MovieCard from "./components/MovieCard";
 import useTrendingMovies from "./hooks/useTrendingMovies";
+import TrendingLoader from "./components/TrendingLoader";
+import Loader from "./components/Loader";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -41,7 +43,7 @@ function App() {
                 
                  {
                   TrendingMovieIsLoading ? (
-                    <p>Loading</p>
+                    <TrendingLoader/>
                   ): TrendingMovieIsError ? (
                     <p className="text-red-500">{TrendingMovieError.message}</p>
                   ) : (
@@ -66,7 +68,7 @@ function App() {
           <section className="all-movies">
             <h2 className="mt-10">All Movies</h2>
             {isLoading ? (
-              <p>Loading...</p>
+              <Loader/>
             ) : isError ? (
               <p className="text-red-500">{error.message}</p>
             ) : (
